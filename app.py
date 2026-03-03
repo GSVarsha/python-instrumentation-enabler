@@ -45,7 +45,7 @@ def get_space_data():
             media_content = f'<img src="{media_url}" style="max-width: 600px; border-radius: 10px;">'
 
         return f"""
-        <div style="font-family: sans-serif; max-width: 600px;">
+        <div style="max-width: 600px;">
             <h1>{title}</h1>
             {media_content}
             <p style="width: 600px;">{explanation}</p>
