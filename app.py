@@ -48,7 +48,9 @@ def get_space_data():
         <div style="max-width: 600px;">
             <h1>{title}</h1>
             {media_content}
-            <p style="width: 600px;">{explanation}</p>
+            <p style="font-size: 18px; line-height: 1.6; color: #333;">
+                {explanation}
+            </p>
             <br>
             <a href="/"><button>Back to Home</button></a>
         </div>
