@@ -32,7 +32,13 @@ def get_space_data():
     api_url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
     
     try:
-        response = requests.get(api_url)
+        response = requests.get(api_url, timeout=10)
+        
+        # Specific check for Rate Limiting
+        if response.status_code == 429:
+            return "🚀 NASA says we've looked at the stars too much! (Rate limit exceeded. Please try again later.)"
+        
+        response.raise_for_status()
         data = response.json()
         
         # Extracting data from the JSON response
