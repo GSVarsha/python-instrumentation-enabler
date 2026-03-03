@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import logging
 from sys import version_info
+import os
 
 from flask import Flask
 import requests
@@ -27,7 +28,8 @@ def get_runtime_version():
 @app.get('/space')
 def get_space_data():
     # Using NASA's Astronomy Picture of the Day API
-    api_url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+    api_key = os.environ.get('NASA_APOD_API_KEY', 'DEMO_KEY')
+    api_url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
     
     try:
         response = requests.get(api_url)
