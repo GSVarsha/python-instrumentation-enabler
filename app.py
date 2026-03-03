@@ -52,7 +52,7 @@ def get_space_data():
                 {explanation}
             </p>
             <br>
-            <a href="/"><button>Back to Home</button></a>
+            <a href="/"><button style="padding: 10px 20px; cursor: pointer;">Back to Home</button></a>
         </div>
         """
     except Exception as e:
