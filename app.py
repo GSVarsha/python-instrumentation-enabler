@@ -47,7 +47,7 @@ def get_space_data():
         explanation = data.get('explanation')
 
         # Determine if the content is a video or an image
-        if media_url.lower().endswith('.mp4'):
+        if data.get('media_type') == "video":
             media_content = f'<video width="600" style="border-radius: 10px;" controls src="{media_url}"></video>'
         else:
             media_content = f'<img src="{media_url}" style="max-width: 600px; border-radius: 10px;">'
