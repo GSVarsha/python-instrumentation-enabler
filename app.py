@@ -35,15 +35,23 @@ def get_space_data():
         
         # Extracting data from the JSON response
         title = data.get('title')
-        img_url = data.get('url')
+        media_url = data.get('url')
         explanation = data.get('explanation')
-        
+
+        # Determine if the content is a video or an image
+        if media_url.lower().endswith('.mp4'):
+            media_content = f'<video width="600" style="border-radius: 10px;" controls src="{media_url}"></video>'
+        else:
+            media_content = f'<img src="{media_url}" style="max-width: 600px; border-radius: 10px;">'
+
         return f"""
-        <h1>{title}</h1>
-        <img src="{img_url}" style="max-width: 600px; border-radius: 10px;">
-        <p style="width: 600px;">{explanation}</p>
-        <br>
-        <a href="/"><button>Back to Home</button></a>
+        <div style="font-family: sans-serif; max-width: 600px;">
+            <h1>{title}</h1>
+            {media_content}
+            <p style="width: 600px;">{explanation}</p>
+            <br>
+            <a href="/"><button>Back to Home</button></a>
+        </div>
         """
     except Exception as e:
         return f"failed to fetch data: {e}"
