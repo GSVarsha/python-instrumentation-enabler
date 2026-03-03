@@ -15,7 +15,7 @@ Contains the space explorer app with the following routes/ endpoints:
 
 ```
 {
-  "runtime_version": "3.12.11"
+  "runtime_version": "3.10.19"
 }
 ```
 
