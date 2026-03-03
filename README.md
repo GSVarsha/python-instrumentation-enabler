@@ -3,7 +3,7 @@ Simple python app(s) to demonstrate observability with OTel and Instana
 
 ## Branch `s2i-dockerfile`
 > [!TIP]
-> Use this branch to demonstrate Openshift's S2I (Source-to-Image) feature.
+> Use this branch to demonstrate Openshift's S2I (Source-to-Image) feature using an existing Dockerfile for further customization.
 
 Contains the space explorer app with the following routes/ endpoints:
 
