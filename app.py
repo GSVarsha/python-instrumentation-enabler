@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import instana
+
 import logging
 import os
 from sys import version_info
@@ -13,9 +15,9 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 
-# Instrumentation Hooks
-from opentelemetry.instrumentation.flask import FlaskInstrumentor
-from opentelemetry.instrumentation.requests import RequestsInstrumentor
+# # Instrumentation Hooks
+# from opentelemetry.instrumentation.flask import FlaskInstrumentor
+# from opentelemetry.instrumentation.requests import RequestsInstrumentor
 
 def setup_telemetry(app):
     # --- OpenTelemetry Initialization ---
@@ -29,9 +31,9 @@ def setup_telemetry(app):
     provider.add_span_processor(processor)
     trace.set_tracer_provider(provider)
 
-    # --- Apply Auto-Instrumentation ---
-    FlaskInstrumentor().instrument_app(app)
-    RequestsInstrumentor().instrument()
+    # # --- Apply Auto-Instrumentation ---
+    # FlaskInstrumentor().instrument_app(app)
+    # RequestsInstrumentor().instrument()
 
 # Initialize Flask
 app = Flask(__name__)
@@ -59,6 +61,7 @@ def get_runtime_version():
 def get_space_data():
     # We wrap the core logic in a custom span to track business logic separately
     with tracer.start_as_current_span("fetch-nasa-data") as span:
+        print(tracer, type(tracer))
         api_key = os.environ.get("NASA_APOD_API_KEY", "DEMO_KEY")
         api_url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
         
