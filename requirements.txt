@@ -1,2 +1,10 @@
 flask
 requests
+
+# The opentelemetry-distro package installs the API, SDK, and the opentelemetry-bootstrap and opentelemetry-instrument tools.
+opentelemetry-distro
+
+# This library is provided as a convenience to install all supported OpenTelemetry Collector Exporters. Currently it installs:
+# - opentelemetry-exporter-otlp-proto-grpc
+# - opentelemetry-exporter-otlp-proto-http
+opentelemetry-exporter-otlp
