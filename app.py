@@ -54,6 +54,7 @@ def get_space_data():
             media_content = f'<video width="600" style="border-radius: 10px;" controls src="{media_url}"></video>'
         else:
             media_content = f'<img src="{media_url}" style="max-width: 600px; border-radius: 10px;">'
+        logger.info(f"Fetched media is a/ an {data.get('media_type')}")
 
         return f"""
         <div style="max-width: 600px;">
@@ -70,5 +71,5 @@ def get_space_data():
         return f"failed to fetch data: {e}"
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=8080)
